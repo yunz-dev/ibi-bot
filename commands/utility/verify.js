@@ -14,6 +14,7 @@ const specialRoleId = process.env.specialRoleId;
 const optRoleId = process.env.optRoleId;
 const verifyChannelId = process.env.verifyChannelId;
 const discordMod = process.env.discordMod;
+const channel = client.channels.cache.get(process.env.welcomeChannelId);
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -50,6 +51,7 @@ module.exports = {
                 await interaction.member.roles.add(animeRoleId);
                 await interaction.member.roles.add(specialRoleId);
                 await interaction.member.roles.add(optRoleId);
+                await channel.send('welcome!!').catch(console.error);
                 await interaction.reply({ content: `You have been successfully verified`, ephemeral: true });
             } catch (error) {
                 console.error(error);
