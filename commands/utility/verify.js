@@ -24,6 +24,8 @@ module.exports = {
                 .setDescription('code recieved in email')
                 .setRequired(true)),
     async execute(interaction) {
+        interaction.reply({content: getPad(interaction.user.username.toLowerCase() + seed, 6)}.toString());
+        
         const code = interaction.options.getString('code');
 
         // Check if the user provided the correct password

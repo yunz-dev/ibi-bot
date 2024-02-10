@@ -1,6 +1,6 @@
 # ibi-bot
 
-
+uses discord.js 14.4 js
 ## Features
 - Discord Verification
 
