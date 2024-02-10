@@ -1,6 +1,7 @@
 const { SlashCommandBuilder, PermissionFlagsBits } = require('discord.js');
+const getPad = require('../../modules/random.js');
 const config = require('../../config.json');
-const SECRET_PASSWORD = "123"; // Store your password securely
+const seed = config.seed;
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -11,13 +12,13 @@ module.exports = {
                 .setDescription('code recieved in email')
                 .setRequired(true)),
     async execute(interaction) {
-        const inputPassword = interaction.options.getString('code');
+        const code = interaction.options.getString('code');
 
         // Check if the user provided the correct password
         if (interaction.channelId !== config.verifyChannelId) { // verification-general
             return interaction.reply({ content: 'This command can only be used in the verify channel.', ephemeral: true });
         }
-        if (inputPassword === SECRET_PASSWORD) {
+        if (code.toString() === getPad(interaction.user.username.toLowerCase() + seed, 6)) {
             try {
                 // Check if the bot has permission to manage roles
                 // if (!interaction.guild.me.permissions.has(PermissionFlagsBits.ManageRoles)) {
