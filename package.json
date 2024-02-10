@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/yunz-dev/ibi-bot#readme",
   "dependencies": {
-    "discord.js": "^14.14.1"
+    "discord.js": "^14.14.1",
+    "dotenv": "^16.4.1"
   }
 }
