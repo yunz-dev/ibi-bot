@@ -1,0 +1,27 @@
+{
+  "name": "ibi-bot",
+  "version": "1.0.0",
+  "description": "aunsw discord bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yunz-dev/ibi-bot.git"
+  },
+  "keywords": [
+    "discord",
+    "app",
+    "bot"
+  ],
+  "author": "yunz-dev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yunz-dev/ibi-bot/issues"
+  },
+  "homepage": "https://github.com/yunz-dev/ibi-bot#readme",
+  "dependencies": {
+    "discord.js": "^14.14.1"
+  }
+}
