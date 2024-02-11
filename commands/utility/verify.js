@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, PermissionFlagsBits } = require('discord.js');
+const { SlashCommandBuilder, PermissionFlagsBits, ChannelType} = require('discord.js');
 const getPad = require('../../modules/random.js');
 // const config = require('../../config.json');
 // const seed = config.seed;
@@ -14,8 +14,6 @@ const specialRoleId = process.env.specialRoleId;
 const optRoleId = process.env.optRoleId;
 const verifyChannelId = process.env.verifyChannelId;
 const discordMod = process.env.discordMod;
-const channel = client.channels.cache.get(process.env.welcomeChannelId);
-
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('verify')
@@ -34,11 +32,13 @@ module.exports = {
         }
         if (code.toString() === getPad(interaction.user.username.toLowerCase() + seed, 6)) {
             try {
+                // give immediate replu
+                await interaction.deferReply({ ephemeral: true });
                 // Check if the bot has permission to manage roles
                 // if (!interaction.guild.me.permissions.has(PermissionFlagsBits.ManageRoles)) {
                 //     return interaction.reply({ content: 'I do not have permission to manage roles.', ephemeral: true });
                 // }
-
+//
                 // Check if the role is manageable by the bot
                 // if (interaction.guild.me.roles.highest.comparePositionTo(roleToAssign) <= 0) {
                 //     return interaction.reply({ content: 'I cannot assign this role because it is higher or equal to my highest role.', ephemeral: true });
@@ -51,11 +51,17 @@ module.exports = {
                 await interaction.member.roles.add(animeRoleId);
                 await interaction.member.roles.add(specialRoleId);
                 await interaction.member.roles.add(optRoleId);
-                await channel.send('welcome!!').catch(console.error);
-                await interaction.reply({ content: `You have been successfully verified`, ephemeral: true });
+                var channel = await interaction.guild?.channels.fetch(process.env.welcomeChannelId.toString());
+                if (channel != null && channel.type == ChannelType.GuildText) {
+
+                    await channel.send(`Welcome <@${interaction.user.id}> feel free to leave an introduction in <#${process.env.introductionChannelId}>`);
+                }
+                // await channel.send('welcome!!').catch(console.error);
+                // await interaction.reply({ content: `You have been successfully verified`, ephemeral: true });
+                await interaction.editReply({ content: `You have been successfully verified`, ephemeral: true });
             } catch (error) {
                 console.error(error);
-                await interaction.reply({ content: `There was an error verifying you, please contact <@${discordMod}> for help.`, ephemeral: true });
+                await interaction.editReply({ content: `There was an error verifying you, please contact <@${discordMod}> for help.`, ephemeral: true });
             }
         } else {
             await interaction.reply({ content: `Invalid code`, ephemeral: true });

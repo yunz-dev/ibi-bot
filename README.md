@@ -1,6 +1,9 @@
 # ibi-bot
 
-uses discord.js 14.4 js
+## Technologies
+- uses discord.js 14.4 js
+- Heroku Cloud
+- 
 ## Features
 - Discord Verification
 
