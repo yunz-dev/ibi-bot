@@ -11,5 +11,10 @@
 1. get config.json and make sure values are correct
 - verifyRole is VERIFY GENERAL
 - rest are pretty self explanatory
-2. run `node deploy-commands.js` 
-3. run `node .` 
+1. run `node deploy-commands.js` 
+2. run `node .` 
+
+## To-do: 
+- clear comments that are everywhere
+- valentines event
+- convert to TS if have time

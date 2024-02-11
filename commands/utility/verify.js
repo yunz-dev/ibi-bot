@@ -12,6 +12,9 @@ const hobbyRoleId = process.env.hobbyRoleId;
 const animeRoleId = process.env.animeRoleId;
 const specialRoleId = process.env.specialRoleId;
 const optRoleId = process.env.optRoleId;
+const artRoleId = process.env.artRoleId;
+const ramenRoleId = process.env.ramenRoleId;
+const weeklyRoleId = process.env.weeklyRoleId;
 const verifyChannelId = process.env.verifyChannelId;
 const discordMod = process.env.discordMod;
 module.exports = {
@@ -51,6 +54,9 @@ module.exports = {
                 await interaction.member.roles.add(animeRoleId);
                 await interaction.member.roles.add(specialRoleId);
                 await interaction.member.roles.add(optRoleId);
+                await interaction.member.roles.add(artRoleId);
+                await interaction.member.roles.add(ramenRoleId);
+                await interaction.member.roles.add(weeklyRoleId);
                 var channel = await interaction.guild?.channels.fetch(process.env.welcomeChannelId.toString());
                 if (channel != null && channel.type == ChannelType.GuildText) {
 
