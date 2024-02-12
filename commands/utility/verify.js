@@ -70,7 +70,7 @@ module.exports = {
                 await interaction.editReply({ content: `There was an error verifying you, please contact <@${discordMod}> for help.`, ephemeral: true });
             }
         } else {
-            await interaction.reply({ content: `Invalid code`, ephemeral: true });
+            await interaction.reply({ content: `Invalid code. Ensure form details are correct, most notably, make sure the discord tag you entered is: \`${interaction.user.username.toLowerCase()}\``, ephemeral: true });
         }
     },
 };
