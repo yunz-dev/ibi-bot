@@ -11,12 +11,17 @@
 ![verif-screenshot3](images/screenshot3.png)
 
 ## install
-1. get config.json and make sure values are correct
-- verifyRole is VERIFY GENERAL
-- rest are pretty self explanatory
-1. run `node deploy-commands.js` 
-2. run `node .` 
+1. Install dependencies:
+  ```npm install```
+2. Get environment variables from me
+3. Deploy the commands
+```node deploy-commands.js``` 
+4. Run bot
+```node .``` 
 
 ## To-do: 
 - clear comments that are everywhere
 - convert to TS if have time
+
+## Credit where credit is due
+- feinxcookies for finding hashing algo
