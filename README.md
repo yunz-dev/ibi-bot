@@ -16,5 +16,4 @@
 
 ## To-do: 
 - clear comments that are everywhere
-- valentines event
 - convert to TS if have time
