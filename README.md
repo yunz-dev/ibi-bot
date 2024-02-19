@@ -10,7 +10,7 @@
 ![verif-screenshot2](images/screenshot2.png)
 ![verif-screenshot3](images/screenshot3.png)
 
-## install
+## Install
 1. Install dependencies:
   ```npm install```
 2. Get environment variables from me
