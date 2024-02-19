@@ -1,5 +1,5 @@
 # ibi-bot
-
+Discord Bot for Anime UNSW.
 ## Technologies
 - uses discord.js 14.4 js
 - Heroku Cloud
